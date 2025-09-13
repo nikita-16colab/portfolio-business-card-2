@@ -1,145 +1,1001 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Tatyana Polovnaya | Senior Copywriter</title> 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-<style> 
-/* ====================================================== 
-1. UPDATED VARIABLES AND BASE
-======================================== */
-:root {
---dark-bg: #0A0A1A; /* Very dark background */
---primary-bg-light: #1A1A2E; /* Primary background for sections */
---primary-bg-dark: #0F0F20; /* Darker for some elements */
---accent-color: #FFD700; /* Gold accent */
---light-text: #E0E0EB;
---secondary-text: #A0A0B0;
---gradient-start: #1C243B;
---gradient-end: #0C121F;
---font-header: 'Montserrat', sans-serif;
---font-body: 'Roboto', sans-serif; 
---spacing-unit: 1rem; 
---border-radius: 8px; 
---shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2); 
---shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4); 
---shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.6); 
-} 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatyana Polovnaya | Senior Copywriter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* =======================================
+           1. UPDATED VARIABLES AND BASE
+           ======================================= */
+        :root {
+            --dark-bg: #0A0A1A;
+            --primary-bg-light: #1A1A2E;
+            --primary-bg-dark: #0F0F20;
+            --accent-color: #FFD700;
+            --light-text: #E0E0EB;
+            --secondary-text: #A0A0B0;
+            --gradient-start: #1C243B;
+            --gradient-end: #0C121F;
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
 
-html { 
-scroll-behavior: smooth; 
-} 
+        html {
+            scroll-behavior: smooth;
+        }
 
-body { 
-font-family: var(--font-body); 
-line-height: 1.7; 
-margin: 0; 
-padding: 0; 
-background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%); 
-color: var(--light-text); 
-overflow-x: hidden; 
-position: relative; 
-} 
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--light-text);
+            overflow-x: hidden;
+            position: relative;
+        }
 
-/* Decorative noise/texture on the background */ 
-body::before { 
-content: ''; 
-position: fixed; 
-top: 0; 
-left: 0; 
-width: 100%; 
-height: 100%; 
-pointer-events: none; 
-background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2 ZyI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMC4wMSIgLz4KPC9zdmc+'); 
-background-repeat: repeat; 
-opacity: 0.1; 
-z-index: -1; 
-} 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMC4wMSIgLz4KPC9zdmc+');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
 
-.container { 
-max-width: 1100px; /* A bit wider for a modern look */
-margin: 0 auto;
-padding: 0 calc(var(--spacing-unit) * 2); /* 2rem padding */
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
+        }
 
-/* Fade in animations */
-.fade-in {
-opacity: 0;
-transform: translateY(40px);
-transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
 
-.fade-in.visible {
-opacity: 1;
-transform: translateY(0);
-}
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* ============================================
-2. NAVIGATION
-========================================== */
-.navbar {
-position: fixed;
-top: 0;
-width: 100%;
-background-color: rgba(10, 10, 26, 0.98); /* Almost black with a little transparency */
-padding: calc(var(--spacing-unit) * 1.2) 0;
-text-align: center;
-z-index: 1000;
-box-shadow: var(--shadow-medium);
-transition: top 0.4s ease-in-out; 
-border-bottom: 1px solid rgba(255, 215, 0, 0.1); 
-} 
+        /* =======================================
+           2. NAVIGATION
+           ======================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 26, 0.98);
+            padding: calc(var(--spacing-unit) * 1.2) 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+            transition: top 0.4s ease-in-out;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
 
-.navbar.hide { 
-top: -80px; 
-} 
+        .navbar.hide {
+            top: -80px;
+        }
 
-.navbar nav { 
-display: flex; 
-justify-content: center; 
-gap: calc(var(--spacing-unit) * 2); 
-} 
+        .navbar nav {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 2);
+        }
 
-.navbar a { 
-color: var(--secondary-text); 
-font-family: var(--font-header); 
-text-decoration: none; 
-font-weight: 500; 
-font-size: 1.05rem; 
-position: relative; 
-transition: all 0.3s ease; 
-padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.5); 
-}
+        .navbar a {
+            color: var(--secondary-text);
+            font-family: var(--font-header);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.5);
+        }
 
-.navbar a:hover {
-color: var(--accent-color);
-transform: translateY(-3px);
-}
+        .navbar a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
 
-/* Underline on hover and for active element */
-.navbar a::after {
-content: '';
-position: absolute;
-left: 0;
-bottom: -5px;
-width: 100%;
-height: 2px;
-background-color: var(--accent-color);
-transform: scaleX(0);
-transition: transform 0.3s ease-in-out;
-}
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
 
-.navbar a:hover::after,
-.navbar a.active::after {
-transform: scaleX(1);
-}
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            transform: scaleX(1);
+        }
 
-/* ==========================================
-3. HERO SECTION
-========================================== */
-.hero {
-text-align: center;
-padding: 200px 20px 100px; /* More padding at the top */
-min-height: 100vh;
+        /* =======================================
+           3. HERO SECTION
+           ======================================= */
+        .hero {
+            text-align: center;
+            padding: 200px 20px 100px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080?abstract-dark-space');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+            opacity: 0.2;
+            filter: brightness(0.6);
+        }
+
+        .hero-photo-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 7px solid var(--accent-color);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.7), 0 0 80px rgba(255, 215, 0, 0.3);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            overflow: hidden;
+            background-image: url('img/my-photo.png');
+            background-size: 207px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--primary-bg-light);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hero-photo-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-family: var(--font-header);
+            font-size: 5.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-unit);
+            color: var(--light-text);
+            text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-family: var(--font-header);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--secondary-text);
+            max-width: 900px;
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            line-height: 1.4;
+        }
+
+        .accent {
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+        }
+        .accent::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            opacity: 0.7;
+            transform: scaleX(0.8);
+        }
+
+        /* =======================================
+           4. GENERAL SECTION STYLES
+           ======================================= */
+        section {
+            padding: calc(var(--spacing-unit) * 8) 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-family: var(--font-header);
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: calc(var(--spacing-unit) * 1.5);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary-text), transparent);
+            opacity: 0.5;
+        }
+
+        /* =======================================
+           5. ABOUT SECTION
+           ======================================= */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .about-photo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            overflow: hidden;
+            flex-shrink: 0;
+            background-image: url('img/my-photo.png');
+            background-size: 202px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--primary-bg-light);
+            transition: transform 0.4s ease-in-out;
+        }
+        .about-photo-container:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .about-text {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            margin-bottom: var(--spacing-unit);
+            font-weight: 300;
+        }
+        .about-text p strong {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .about-photo-container {
+                margin-right: calc(var(--spacing-unit) * 4);
+                margin-bottom: 0;
+            }
+            .about-text {
+                text-align: left;
+            }
+        }
+
+        /* =======================================
+           6. CASE STUDIES SECTION
+           ======================================= */
+        .case-study {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: var(--border-radius);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            box-shadow: var(--shadow-medium);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-color), rgba(255, 215, 0, 0.2));
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+
+        .case-study:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: var(--shadow-dark);
+            background-color: var(--primary-bg-dark);
+        }
+
+        .case-study h3 {
+            font-family: var(--font-header);
+            color: var(--accent-color);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+            font-weight: 700;
+        }
+
+        .case-study h4 {
+            font-family: var(--font-header);
+            color: var(--light-text);
+            font-size: 1.4rem;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            margin-top: calc(var(--spacing-unit) * 3);
+            font-weight: 500;
+        }
+
+        .case-study strong {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .case-study ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: var(--spacing-unit);
+        }
+        .case-study ul li {
+            position: relative;
+            padding-left: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            color: var(--secondary-text);
+        }
+        .case-study ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+
+        .case-study .results {
+            margin-top: calc(var(--spacing-unit) * 4);
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+        }
+
+        .case-study .results table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .case-study .results th,
+        .case-study .results td {
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+        }
+        .case-study .results tr:last-child td {
+            border-bottom: none;
+        }
+
+        .case-study .results th {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            background-color: var(--primary-bg-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .case-study .results td {
+            font-weight: 400;
+        }
+
+        .case-study .results .before {
+            color: var(--secondary-text);
+        }
+
+        .case-study .results .after {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* =======================================
+           7. SKILLS SECTION
+           ======================================= */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .skills-list li {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            border-left: 5px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 1.5);
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease-out;
+            border-top: 1px solid rgba(255, 215, 0, 0.05);
+        }
+
+        .skills-list li:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--primary-bg-dark);
+        }
+
+        .skills-list li svg {
+            fill: var(--accent-color);
+            min-width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .skills-list li:hover svg {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .skills-list li span {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        /* =======================================
+           8. TESTIMONIALS SECTION
+           ======================================= */
+        .testimonial {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: var(--border-radius);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .testimonial:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+            background-color: var(--primary-bg-dark);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial::before {
+            content: '“';
+            font-family: var(--font-header);
+            font-size: 6rem;
+            color: rgba(255, 215, 0, 0.2);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin: 0 0 var(--spacing-unit) 0;
+            font-size: 1.2rem;
+            padding-left: calc(var(--spacing-unit) * 4);
+            position: relative;
+            z-index: 1;
+            color: var(--secondary-text);
+        }
+
+        .testimonial cite {
+            display: block;
+            text-align: right;
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            font-weight: 500;
+        }
+
+        /* =======================================
+           9. CONTACT SECTION
+           ======================================= */
+        .contact-box {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 6);
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--secondary-text);
+        }
+
+        .contact-box a {
+            color: var(--accent-color);
+            font-family: var(--font-header);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2.2rem;
+            display: inline-block;
+            padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .contact-box a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.4);
+            transform: scale(1.05);
+            letter-spacing: 1px;
+        }
+
+        /* =======================================
+           10. FOOTER
+           ======================================= */
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: calc(var(--spacing-unit) * 5);
+        }
+
+        /* =======================================
+           11. RESPONSIVENESS
+           ======================================= */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero p {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav {
+                gap: calc(var(--spacing-unit) * 1);
+            }
+            .navbar a {
+                font-size: 0.95rem;
+                padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 0.3);
+            }
+            .hero {
+                padding: 150px 20px 80px;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-photo-container {
+                width: 180px;
+                height: 180px;
+                border-width: 6px;
+            }
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: calc(var(--spacing-unit) * 4);
+                padding-bottom: calc(var(--spacing-unit) * 1);
+            }
+            .about-photo-container {
+                width: 150px;
+                height: 150px;
+                border-width: 4px;
+                margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+            .about-text p {
+                font-size: 1.1rem;
+            }
+            .case-study {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+            .case-study h3 {
+                font-size: 1.8rem;
+            }
+            .case-study h4 {
+                font-size: 1.2rem;
+            }
+            .skills-list li {
+                gap: calc(var(--spacing-unit) * 1);
+                padding: calc(var(--spacing-unit) * 1.5);
+            }
+            .skills-list li svg {
+                min-width: 28px;
+                height: 28px;
+            }
+            .skills-list li span {
+                font-size: 1.05rem;
+            }
+            .testimonial {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+            .testimonial::before {
+                font-size: 5rem;
+                left: 15px;
+            }
+            .testimonial p {
+                font-size: 1.1rem;
+                padding-left: calc(var(--spacing-unit) * 3);
+            }
+            .contact-box {
+                padding: calc(var(--spacing-unit) * 4);
+            }
+            .contact-box a {
+                font-size: 1.8rem;
+                padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar nav {
+                flex-wrap: wrap;
+            }
+            .navbar a {
+                font-size: 0.85rem;
+                padding: calc(var(--spacing-unit) * 0.5);
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            .contact-box a {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#skills">Skills</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container fade-in">
+                <div class="hero-photo-container"></div>
+                <h1>Tatyana <span class="accent">Polovnaya</span></h1>
+                <p>Senior Copywriter at Storyline Production s.r.o.</p>
+                <p>I create content that **converts visitors into clients**.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container fade-in">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-photo-container"></div>
+                    <div class="about-text">
+                        <p>
+                            I am a Senior Copywriter from **Storyline Production s.r.o.** in Prague. My specialty is creating persuasive, results-oriented texts based on data and a deep understanding of audience behavior. I don't just write; I analyze, optimize, test, and improve every text to achieve measurable business goals. My experience allows me to work effectively on diverse projects, ensuring **high conversion and maximum ROI** for every client.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies">
+            <div class="container">
+                <h2 class="fade-in">Case Studies</h2>
+
+                <div class="case-study fade-in">
+                    <h3>Banner Ad Campaign + Segmentation</h3>
+                    <p><strong>Period:</strong> January - February 2025</p>
+                    <h4>Challenge:</h4>
+                    <p>Banner ad CTR was around 2.5%, the budget was spent quickly, and there were few clicks to the website.</p>
+                    <h4>My solution:</h4>
+                    <ul>
+                        <li>Analyzed the audience and segmented it into three groups based on interests and behavior.</li>
+                        <li>Rewrote headlines and calls to action, focusing on specific benefits.</li>
+                        <li>Conducted A/B tests on different banner variations (different headlines, calls to action, visuals).</li>
+                        <li>Simplified the design, removed unnecessary elements, and reinforced the CTA.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metrics</th>
+                                    <th>Before changes</th>
+                                    <th>After changes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Banner CTR</td>
+                                    <td class="before">~2.5%</td>
+                                    <td class="after">**~4.0%** (an increase of **~25%**)</td>
+                                </tr>
+                                <tr>
+                                    <td>Cost Per Click (CPC)</td>
+                                    <td class="before">High</td>
+                                    <td class="after">A decrease of **~25%**</td>
+                                </tr>
+                                <tr>
+                                    <td>Traffic to landing page</td>
+                                    <td class="before">Baseline number</td>
+                                    <td class="after">An increase of **~80%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-study fade-in">
+                    <h3>Landing Page Optimization for Video Production</h3>
+                    <p><strong>Period:</strong> March 2025</p>
+                    <h4>Challenge:</h4>
+                    <p>Landing page conversion rate was ~3.2%, high bounce rate, visitors left without submitting a request.</p>
+                    <h4>My solution:</h4>
+                    <ul>
+                        <li>Analyzed visitor behavior (heat maps) to understand at which block they "dropped off".</li>
+                        <li>Changed the order of blocks: benefits first, then cases/portfolio, testimonials, and only then the call to action.</li>
+                        <li>Made headlines bolder and more specific, broke up the text into bullet points and short paragraphs.</li>
+                        <li>Added expressive CTAs ("Request a consultation," "Get a quote") in visible places.</li>
+                        <li>Increased trust by adding client testimonials and work examples.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metrics</th>
+                                    <th>Before</th>
+                                    <th>After</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Landing Page Conversion</td>
+                                    <td class="before">~3.2%</td>
+                                    <td class="after">**~4.8%** (an increase of **~50%**)</td>
+                                </tr>
+                                <tr>
+                                    <td>Average time on page</td>
+                                    <td class="before">~1 min</td>
+                                    <td class="after">~1:45 min</td>
+                                </tr>
+                                <tr>
+                                    <td>Bounce Rate</td>
+                                    <td class="before">~70%</td>
+                                    <td class="after">Reduced to **~55%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-study fade-in">
+                    <h3>Email Marketing Series / Repeat Sales</h3>
+                    <p><strong>Period:</strong> April - May 2025</p>
+                    <h4>Challenge:</h4>
+                    <p>Increase repeat sales and upsells among existing clients and bring back those who haven't placed an order in a long time.</p>
+                    <h4>My solution:</h4>
+                    <ul>
+                        <li>Segmented the client base: "current clients," "past clients," "subscribed but did not buy."</li>
+                        <li>Developed a series of 5 emails: welcome, useful content, case studies, bonus/discount offer, reminder.</li>
+                        <li>Conducted A/B tests on email subjects and CTAs, optimized the structure—conciseness, clarity, a direct path to action.</li>
+                        <li>Optimized sending times and email subjects.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metrics</th>
+                                    <th>Before</th>
+                                    <th>After</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Open Rate</td>
+                                    <td class="before">~18%</td>
+                                    <td class="after">**~28–30%**</td>
+                                </tr>
+                                <tr>
+                                    <td>Email CTR</td>
+                                    <td class="before">~3%</td>
+                                    <td class="after">**~8–10%**</td>
+                                </tr>
+                                <tr>
+                                    <td>Revenue / Sales</td>
+                                    <td class="before">Baseline level</td>
+                                    <td class="after">Sales increase of **+25%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="fade-in">Skills & Services</h2>
+                <ul class="skills-list fade-in">
+                    <li>
+                        <i class="fas fa-edit"></i>
+                        <span>Sales-driven copywriting (banners, landing pages, website texts)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>Email marketing and automated email sequences</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <span>Audience analysis, segmentation, A/B testing</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>Conversion optimization, UX-driven approach to text</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-database"></i>
+                        <span>Data work: CTR, CPC, analytics, heatmaps</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">Testimonials</h2>
+                <div class="testimonial fade-in">
+                    <p>“Tatyana's work allowed us to increase banner CTR from ~2.5% to **~4.0%** and at the same time reduce the cost per click by **~25%**.”</p>
+                    <cite>— Head of Marketing, Storyline Production s.r.o.</cite>
+                </div>
+                <div class="testimonial fade-in">
+                    <p>“After optimizing the landing page, we started receiving applications much more frequently — the conversion rate grew from ≈3.2% to **≈4.8%**.”</p>
+                    <cite>— Internal Client, Storyline Project</cite>
+                </div>
+                <div class="testimonial fade-in">
+                    <p>“The new email sequence increased sales by **25%** among our existing client base; the Open Rate rose to **~30%**, and CTR to **~10%**.”</p>
+                    <cite>— Marketing Department, Storyline Production</cite>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container fade-in">
+                <h2>Contact</h2>
+                <div class="contact-box">
+                    <p>Connect through my <a href="#" target="_blank">Upwork profile</a></p>
+                    <p>Need to see my full PDF portfolio? I'll send the link upon request via Upwork.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tatyana Polovnaya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
+                    navbar.classList.add('hide');
+                } else {
+                    navbar.classList.remove('hide');
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</body>
+</html>
