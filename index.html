@@ -1,262 +1,1010 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikita | Portfolio</title>
-    <!-- Подключаем Tailwind CSS для быстрого и современного стиля -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Подключаем шрифт Inter с Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Tatyana Polovnaya | Senior Copywriter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* =======================================
+           1. ОБНОВЛЕННЫЕ ПЕРЕМЕННЫЕ И ОСНОВА
+           ======================================= */
+        :root {
+            --dark-bg: #0A0A1A; /* Очень тёмный фон */
+            --primary-bg-light: #1A1A2E; /* Основной фон для секций */
+            --primary-bg-dark: #0F0F20; /* Более тёмный для некоторых элементов */
+            --accent-color: #FFD700; /* Золотой акцент */
+            --light-text: #E0E0EB;
+            --secondary-text: #A0A0B0;
+            --gradient-start: #1C243B;
+            --gradient-end: #0C121F;
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Анимации для плавного появления элементов */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-            animation: fadeIn 0.8s ease-out;
-        }
-        .animate-fade-in-up-delay {
-            animation: fadeIn 0.8s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-        /* Стили для контейнера с изображением и текстом */
-        .image-container {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--light-text);
+            overflow-x: hidden;
             position: relative;
-            overflow: hidden;
         }
-        .text-overlay {
+
+        /* Декоративный шум/текстура на фоне */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMC4wMSIgLz4KPC9zdmc+');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px; /* Немного шире для современного вида */
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2); /* 2rem padding */
+        }
+
+        /* Анимации появления */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =======================================
+           2. НАВИГАЦИЯ
+           ======================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 26, 0.98); /* Почти чёрный с небольшой прозрачностью */
+            padding: calc(var(--spacing-unit) * 1.2) 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+            transition: top 0.4s ease-in-out;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .navbar.hide {
+            top: -80px;
+        }
+
+        .navbar nav {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .navbar a {
+            color: var(--secondary-text);
+            font-family: var(--font-header);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.5);
+        }
+
+        .navbar a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Подчеркивание при наведении и для активного элемента */
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* =======================================
+           3. СЕКЦИЯ HERO
+           ======================================= */
+        .hero {
+            text-align: center;
+            padding: 200px 20px 100px; /* Больше отступа сверху */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* Для эффекта параллакса */
+        }
+
+        /* Фон с параллаксом */
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: url('https://source.unsplash.com/random/1920x1080?abstract-dark-space'); /* Пример фонового изображения */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Эффект параллакса */
+            z-index: -2;
+            opacity: 0.2; /* Мягкое наложение */
+            filter: brightness(0.6);
+        }
+
+        .hero-photo-container {
+            width: 220px; /* Еще больше фото */
+            height: 220px;
+            border-radius: 50%;
+            border: 7px solid var(--accent-color);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.7), 0 0 80px rgba(255, 215, 0, 0.3); /* Более глубокая тень с свечением */
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            overflow: hidden;
+            background-image: url('img/my-photo.png');
+            background-size: 273px; /* Ваш размер */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--primary-bg-light);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавный эффект "выпрыгивания" */
+        }
+
+        .hero-photo-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-family: var(--font-header);
+            font-size: 5.5rem; /* Огромный заголовок */
+            font-weight: 700;
+            margin-bottom: var(--spacing-unit);
+            color: var(--light-text);
+            text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-family: var(--font-header);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--secondary-text);
+            max-width: 900px;
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            line-height: 1.4;
+        }
+
+        .accent {
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+        }
+        .accent::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            opacity: 0.7;
+            transform: scaleX(0.8);
+        }
+
+        /* =======================================
+           4. ОБЩИЕ СТИЛИ СЕКЦИЙ
+           ======================================= */
+        section {
+            padding: calc(var(--spacing-unit) * 8) 0; /* Увеличим отступы секций */
+            position: relative;
+            z-index: 1; /* Чтобы содержимое было поверх фона body::before */
+        }
+
+        h2 {
+            font-family: var(--font-header);
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: calc(var(--spacing-unit) * 1.5);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 4px; /* Небольшое скругление для линии */
+        }
+        h2::before { /* Дополнительная декоративная линия */
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary-text), transparent);
+            opacity: 0.5;
+        }
+
+        /* =======================================
+           5. СЕКЦИЯ ABOUT
+           ======================================= */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 4);
+        }
+
+        .about-photo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            overflow: hidden;
+            flex-shrink: 0;
+            background-image: url('img/my-photo.png');
+            background-size: 212px; /* Ваш размер */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--primary-bg-light);
+            transition: transform 0.4s ease-in-out;
+        }
+        .about-photo-container:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .about-text {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            margin-bottom: var(--spacing-unit);
+            font-weight: 300;
+        }
+        .about-text p strong {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .about-photo-container {
+                margin-right: calc(var(--spacing-unit) * 4);
+                margin-bottom: 0;
+            }
+            .about-text {
+                text-align: left;
+            }
+        }
+
+        /* =======================================
+           6. СЕКЦИЯ CASE STUDIES
+           ======================================= */
+        .case-study {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: var(--border-radius);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            box-shadow: var(--shadow-medium);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 1px solid rgba(255, 215, 0, 0.1); /* Тонкая рамка */
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study::before { /* Декоративная полоса */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-color), rgba(255, 215, 0, 0.2));
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+
+        .case-study:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: var(--shadow-dark);
+            background-color: var(--primary-bg-dark); /* Немного темнее при наведении */
+        }
+
+        .case-study h3 {
+            font-family: var(--font-header);
+            color: var(--accent-color);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+            font-weight: 700;
+        }
+
+        .case-study h4 {
+            font-family: var(--font-header);
+            color: var(--light-text);
+            font-size: 1.4rem;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            margin-top: calc(var(--spacing-unit) * 3);
+            font-weight: 500;
+        }
+
+        .case-study strong {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .case-study ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: var(--spacing-unit);
+        }
+        .case-study ul li {
+            position: relative;
+            padding-left: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            color: var(--secondary-text);
+        }
+        .case-study ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+
+        .case-study .results {
+            margin-top: calc(var(--spacing-unit) * 4);
+            background-color: rgba(0, 0, 0, 0.15); /* Темнее для контраста */
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+        }
+
+        .case-study .results table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .case-study .results th,
+        .case-study .results td {
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+        }
+        .case-study .results tr:last-child td {
+            border-bottom: none;
+        }
+
+        .case-study .results th {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            background-color: var(--primary-bg-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .case-study .results td {
+            font-weight: 400;
+        }
+
+        .case-study .results .before {
+            color: var(--secondary-text);
+        }
+
+        .case-study .results .after {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* =======================================
+           7. СЕКЦИЯ SKILLS
+           ======================================= */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .skills-list li {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            border-left: 5px solid var(--accent-color);
+            border-radius: var(--border-radius);
             display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            gap: calc(var(--spacing-unit) * 1.5);
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease-out;
+            border-top: 1px solid rgba(255, 215, 0, 0.05); /* Легкая верхняя рамка */
         }
-        .image-container:hover .text-overlay {
-            opacity: 1;
+
+        .skills-list li:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-medium);
+            background-color: var(--primary-bg-dark);
+        }
+
+        .skills-list li svg {
+            fill: var(--accent-color);
+            min-width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .skills-list li:hover svg {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .skills-list li span {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        /* =======================================
+           8. СЕКЦИЯ TESTIMONIALS
+           ======================================= */
+        .testimonial {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: var(--border-radius);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .testimonial:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+            background-color: var(--primary-bg-dark);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial::before {
+            content: '“';
+            font-family: var(--font-header);
+            font-size: 6rem; /* Крупная кавычка */
+            color: rgba(255, 215, 0, 0.2);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin: 0 0 var(--spacing-unit) 0;
+            font-size: 1.2rem;
+            padding-left: calc(var(--spacing-unit) * 4);
+            position: relative;
+            z-index: 1;
+            color: var(--secondary-text);
+        }
+
+        .testimonial cite {
+            display: block;
+            text-align: right;
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            font-weight: 500;
+        }
+
+        /* =======================================
+           9. СЕКЦИЯ CONTACT
+           ======================================= */
+        .contact-box {
+            background-color: var(--primary-bg-light);
+            padding: calc(var(--spacing-unit) * 6);
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--secondary-text);
+        }
+
+        .contact-box a {
+            color: var(--accent-color);
+            font-family: var(--font-header);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2.2rem;
+            display: inline-block;
+            padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .contact-box a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.4);
+            transform: scale(1.05);
+            letter-spacing: 1px;
+        }
+
+        /* =======================================
+           10. ФУТЕР
+           ======================================= */
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: calc(var(--spacing-unit) * 5);
+        }
+
+        /* =======================================
+           11. АДАПТИВНОСТЬ
+           ======================================= */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero p {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav {
+                gap: calc(var(--spacing-unit) * 1);
+            }
+            .navbar a {
+                font-size: 0.95rem;
+                padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 0.3);
+            }
+            .hero {
+                padding: 150px 20px 80px;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-photo-container {
+                width: 180px;
+                height: 180px;
+                border-width: 6px;
+            }
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: calc(var(--spacing-unit) * 4);
+                padding-bottom: calc(var(--spacing-unit) * 1);
+            }
+            .about-photo-container {
+                width: 150px;
+                height: 150px;
+                border-width: 4px;
+                margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+            .about-text p {
+                font-size: 1.1rem;
+            }
+            .case-study {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+            .case-study h3 {
+                font-size: 1.8rem;
+            }
+            .case-study h4 {
+                font-size: 1.2rem;
+            }
+            .skills-list li {
+                gap: calc(var(--spacing-unit) * 1);
+                padding: calc(var(--spacing-unit) * 1.5);
+            }
+            .skills-list li svg {
+                min-width: 28px;
+                height: 28px;
+            }
+            .skills-list li span {
+                font-size: 1.05rem;
+            }
+            .testimonial {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+            .testimonial::before {
+                font-size: 5rem;
+                left: 15px;
+            }
+            .testimonial p {
+                font-size: 1.1rem;
+                padding-left: calc(var(--spacing-unit) * 3);
+            }
+            .contact-box {
+                padding: calc(var(--spacing-unit) * 4);
+            }
+            .contact-box a {
+                font-size: 1.8rem;
+                padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .navbar nav {
+                flex-wrap: wrap;
+            }
+            .navbar a {
+                font-size: 0.85rem;
+                padding: calc(var(--spacing-unit) * 0.5);
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            .contact-box a {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-950 text-white min-h-screen">
 
-    <!-- Header Section -->
-    <header class="py-20 text-center bg-slate-900 border-b-2 border-blue-600">
-        <h1 class="text-5xl font-extrabold mb-4 animate-fade-in-up">
-           Nikita 
-        </h1>
-        <p class="text-xl text-gray-400 animate-fade-in-up-delay">
-            Portfolio | E-Commerce Visualization with AI
-        </p>
+<body>
+
+    <header class="navbar">
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#about">Обо мне</a>
+            <a href="#case-studies">Кейсы</a>
+            <a href="#skills">Навыки</a>
+            <a href="#testimonials">Отзывы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
     </header>
 
-    <!-- Main Portfolio Content Section -->
-    <main id="portfolio-container" class="container mx-auto px-4 py-16">
-        <!-- Content will be generated by JavaScript -->
+    <main>
+        <section id="home" class="hero">
+            <div class="container fade-in">
+                <div class="hero-photo-container"></div>
+                <h1>Tatyana <span class="accent">Polovnaya</span></h1>
+                <p>Старший копирайтер в Storyline Production s.r.o.</p>
+                <p>Создаю тексты, которые **конвертируют посетителей в клиентов**.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container fade-in">
+                <h2>Обо мне</h2>
+                <div class="about-content">
+                    <div class="about-photo-container"></div>
+                    <div class="about-text">
+                        <p>
+                            Я — старший копирайтер из **Storyline Production s.r.o.** в Праге. Моя специализация — создание убедительных, ориентированных на результат текстов, основанных на данных и глубоком понимании поведения аудитории. Я не просто пишу; я анализирую, оптимизирую, тестирую и улучшаю каждый текст для достижения измеримых бизнес-целей.
+                            Мой опыт позволяет мне эффективно работать с разнообразными проектами, обеспечивая **высокую конверсию и максимальный ROI** для каждого клиента.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies">
+            <div class="container">
+                <h2 class="fade-in">Кейсы</h2>
+
+                <div class="case-study fade-in">
+                    <h3>Рекламная кампания баннеров + сегментация</h3>
+                    <p><strong>Период:</strong> Январь - Февраль 2025</p>
+                    <h4>Задача:</h4>
+                    <p>CTR баннеров был около 2.5%, бюджет расходовался быстро, а кликов на сайт было мало.</p>
+                    <h4>Мое решение:</h4>
+                    <ul>
+                        <li>Проанализировала аудиторию и разделила её на три сегмента по интересам и поведению.</li>
+                        <li>Переписала заголовки и призывы к действию, сделав акцент на конкретных преимуществах.</li>
+                        <li>Провела A/B-тесты вариантов баннеров (разные заголовки, призывы, визуалы).</li>
+                        <li>Упростила дизайн, убрала лишние элементы, усилила CTA.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Результаты:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Метрики</th>
+                                    <th>До изменений</th>
+                                    <th>После изменений</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CTR баннеров</td>
+                                    <td class="before">~2.5%</td>
+                                    <td class="after">**~4.0%** (рост на **~25%**)</td>
+                                </tr>
+                                <tr>
+                                    <td>Стоимость клика (CPC)</td>
+                                    <td class="before">Высокая</td>
+                                    <td class="after">Снижение на **~25%**</td>
+                                </tr>
+                                <tr>
+                                    <td>Переходы на лендинг</td>
+                                    <td class="before">Базовое число</td>
+                                    <td class="after">Рост на **~80%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-study fade-in">
+                    <h3>Оптимизация лендинга для видеопродакшена</h3>
+                    <p><strong>Период:</strong> Март 2025</p>
+                    <h4>Задача:</h4>
+                    <p>Конверсия лендинга была ~3.2%, высокий показатель отказов, посетители уходили без заявки.</p>
+                    <h4>Мое решение:</h4>
+                    <ul>
+                        <li>Провела анализ поведения посетителей (тепловые карты), чтобы понять, на каком блоке они "отваливаются".</li>
+                        <li>Изменила порядок блоков: сначала преимущества, затем кейсы/портфолио, отзывы, и только потом призыв к действию.</li>
+                        <li>Сделала заголовки ярче и конкретнее, разделила текст на буллеты и короткие абзацы.</li>
+                        <li>Добавила выразительные CTA ("Запросить консультацию", "Получить смету") в видимых местах.</li>
+                        <li>Повысила доверие, добавив отзывы клиентов и примеры работ.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Результаты:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Метрики</th>
+                                    <th>До</th>
+                                    <th>После</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Конверсия лендинга</td>
+                                    <td class="before">~3.2%</td>
+                                    <td class="after">**~4.8%** (рост на **~50%**)</td>
+                                </tr>
+                                <tr>
+                                    <td>Среднее время на странице</td>
+                                    <td class="before">~1 мин</td>
+                                    <td class="after">~1:45 мин</td>
+                                </tr>
+                                <tr>
+                                    <td>Показатель отказов</td>
+                                    <td class="before">~70%</td>
+                                    <td class="after">Снижение до **~55%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-study fade-in">
+                    <h3>Цепочка email-рассылок / Повторные продажи</h3>
+                    <p><strong>Период:</strong> Апрель - Май 2025</p>
+                    <h4>Задача:</h4>
+                    <p>Увеличить повторные продажи и допродажи среди существующих клиентов и вернуть тех, кто давно не делал заказов.</p>
+                    <h4>Мое решение:</h4>
+                    <ul>
+                        <li>Провела сегментацию клиентской базы: "текущие клиенты", "бывшие клиенты", "подписались, но не купили".</li>
+                        <li>Разработала серию из 5 сообщений: приветственное, полезный контент, кейсы, предложение бонуса/скидки, напоминание.</li>
+                        <li>Провела A/B-тесты тем писем и CTA, оптимизировала структуру — краткость, ясность, прямой путь к действию.</li>
+                        <li>Оптимизировала время отправки и темы писем.</li>
+                    </ul>
+                    <div class="results">
+                        <h4>Результаты:</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Метрики</th>
+                                    <th>До</th>
+                                    <th>После</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Open Rate</td>
+                                    <td class="before">~18%</td>
+                                    <td class="after">**~28–30%**</td>
+                                </tr>
+                                <tr>
+                                    <td>CTR из писем</td>
+                                    <td class="before">~3%</td>
+                                    <td class="after">**~8–10%**</td>
+                                </tr>
+                                <tr>
+                                    <td>Доход / продажи</td>
+                                    <td class="before">Базовый уровень</td>
+                                    <td class="after">Рост продаж на **+25%**</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="fade-in">Навыки & Услуги</h2>
+                <ul class="skills-list fade-in">
+                    <li>
+                        <i class="fas fa-edit"></i> <span>Продающий копирайтинг (баннеры, лендинги, тексты для сайтов)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope-open-text"></i> <span>Email-маркетинг и автоматизированные цепочки писем</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i> <span>Анализ аудитории, сегментация, A/B-тестирование</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-mouse-pointer"></i> <span>Оптимизация конверсии, UX-подход к текстам</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-database"></i> <span>Работа с данными: CTR, CPC, аналитика, тепловые карты</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="fade-in">Отзывы</h2>
+                <div class="testimonial fade-in">
+                    <p>“Работа Татьяны позволила нам увеличить CTR баннеров с ~2.5% до **~4.0%** и одновременно сократить стоимость клика на **~25%**.”</p>
+                    <cite>— Руководитель отдела маркетинга, Storyline Production s.r.o.</cite>
+                </div>
+                <div class="testimonial fade-in">
+                    <p>“После оптимизации лендинга заявки стали приходить гораздо чаще — конверсия выросла с ≈3.2% до **≈4.8%**.”</p>
+                    <cite>— Внутренний клиент, проект Storyline</cite>
+                </div>
+                <div class="testimonial fade-in">
+                    <p>“Новая цепочка писем увеличила продажи на **25%** среди существующей клиентской базы; Open Rate вырос до **~30%**, CTR — до **~10%**.”</p>
+                    <cite>— Отдел маркетинга, Storyline Production</cite>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container fade-in">
+                <h2>Контакты</h2>
+                <div class="contact-box">
+                    <p>Связь через <a href="#" target="_blank">профиль на Upwork</a></p>
+                    <p>Нужно увидеть полное PDF-портфолио? Отправлю ссылку по запросу через Upwork.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer Section with Contact Information -->
-    <footer class="bg-slate-900 py-12 text-center text-gray-400">
-        <div class="container mx-auto px-4">
-            <h4 class="text-xl font-bold mb-4 text-white">
-                Ready to cooperate?
-            </h4>
-            <p class="mb-4">
-                Contact me to discuss your project.
-            </p>
-            <a
-                href="mailto:npolovnoj022@gmail.com"
-                class="flex items-center justify-center text-white font-medium hover:text-blue-500 transition-colors">
-                <!-- Email icon in SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
-                    <rect width="20" height="16" x="2" y="4" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                npolovnoj022@gmail.com
-            </a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tatyana Polovnaya. Все права защищены.</p>
         </div>
     </footer>
-    <!-- JavaScript for dynamic content generation -->
+
     <script>
-        // Wait for the page to fully load
+        // JS для анимаций при прокрутке
         document.addEventListener('DOMContentLoaded', () => {
-            // Data for your portfolio. Using paths to your image files.
-            const portfolioItems = [
-                {
-                    title: "Standard Package - Example 1",
-                    description: "Selling infographics and 1 AI photo of the product.",
-                    url: "https://nikita-16colab.github.io/shopify-product-cards/",
-                    image: "img/Снимок экрана 2025-09-01 091150.png",
-                    type: "Standard",
-                    overlayText: "Standard 1"
-                },
-                {
-                    title: "Standard Package - Example 2",
-                    description: "Infographics that help customers make quick purchasing decisions.",
-                    url: "https://nikita-16colab.github.io/shopify-product-cards2/",
-                    image: "img/Снимок экрана 2025-09-01 090501.png", 
-                    type: "Standard",
-                    overlayText: "Standard 2"
-                },
-                {
-                    title: "Premium Package - Example 1",
-                    description: "Infographics and video with an AI agent to build trust.",
-                    url: "https://nikita-16colab.github.io/shopify-product-cards3/",
-                    image: "img/Снимок экрана 2025-09-01 091511.png",
-                    type: "Premium",
-                    overlayText: "Premium 1"
-                },
-                {
-                    title: "Premium Package - Example 2",
-                    description: "A comprehensive solution to make the product stand out.",
-                    url: "https://nikita-16colab.github.io/shopify-product-cards4/",
-                    image: "img/Снимок экрана 2025-09-01 091623.png",
-                    type: "Premium",
-                    overlayText: "Premium 2"
-                },
-                {
-                    title: "Maximum Package - Example 1",
-                    description: "Infographics, video review, and 5 AI photos for a complete package.",
-                    url: "https://nikita-16colab.github.io/shopify-product-cards5/",
-                    image: "img/Снимок экрана 2025-09-01 091813.png",
-                    type: "Maximum",
-                    overlayText: "Maximum 1"
-                },
-            ];
-const reviews = [
-                {
-                    name: "David S.",
-                    avatar: "img/pexels-maximilian-orlowsky-515733-33538782.jpg",
-                    text: "Nikita's work is outstanding! The infographics are clean, professional, and helped us double our sales in the first month. He is very responsive and easy to work with. Highly recommended!",
-                },
-                {
-                    name: "Maria L.",
-                    avatar: "img/pexels-soldiervip-1391498.jpg",
-                    text: "The AI-generated photos were exactly what we needed to make our product pop on Amazon. The visual quality is amazing, and it made a huge difference for our conversion rate. A true professional!",
-                },
-                {
-                    name: "Alex B.",
-                    avatar: "img/pexels-gabriel-passos-71368745-33646934.jpg",
-                    text: "I was looking for a fresh approach to my Shopify store. Nikita's premium package was perfect. The video with the AI agent was a fantastic idea that built trust with our customers. Will definitely work with him again.",
-                },
-                {
-                    name: "Jane K.",
-                    avatar: "img/pexels-thorl5-2154653228-33602673.jpg",
-                    text: "Quick, reliable, and high-quality work. Nikita understood exactly what we needed and delivered it perfectly. His communication is excellent, and the final results exceeded our expectations.",
-                },
-                {
-                    name: "Michael R.",
-                    avatar: "img/pexels-0ldpikes-33646587.jpg",
-                    text: "We needed some custom infographics for a new product launch. Nikita provided a seamless experience from start to finish. The visuals are stunning and have received great feedback from our customers.",
-                },
-            ];
-            
-            const container = document.getElementById('portfolio-container');
-            let html = '';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Optionally remove 'visible' class if you want elements to disappear on scroll up
+                        // entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.1 }); // Немного уменьшим порог, чтобы анимация срабатывала раньше
 
-            // Group items by package type
-            const packages = {
-                "Standard": [],
-                "Premium": [],
-                "Maximum": []
-            };
-
-            portfolioItems.forEach(item => {
-                packages[item.type].push(item);
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
             });
-            // Generate HTML for each package
-            for (const type in packages) {
-                if (packages[type].length > 0) {
-                    html += `
-                        <section class="mb-16">
-                            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-blue-600 pb-2">
-                                Package "${type}"
-                            </h2>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    `;
-                    packages[type].forEach(item => {
-                        html += `
-                                <div class="bg-slate-800 rounded-2xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-105">
-                                    <div class="image-container w-full h-48">
-                                        <img
-                                            src="${item.image}"
-                                            alt="${item.title}"
-                                            class="w-full h-full object-cover object-center"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x300/475569/f1f5f9?text=Error';"
-                                        />
-                                        <div class="text-overlay">
-                                            <p>${item.overlayText}</p>
-                                        </div>
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-semibold mb-2 text-white">${item.title}</h3>
-                                        <p class="text-gray-400 text-sm mb-4">${item.description}</p>
-                                        <a
-                                            href="${item.url}"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="inline-block px-6 py-3 bg-blue-600 text-white rounded-full font-medium transition-colors duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900">
-                                            View
-                                        </a>
-                                    </div>
-                                </div>
-                        `;
-                    });
-                    html += `
-                            </div>
-                        </section>
-                    `;
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 100) { // Adjust offset as needed
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Hide/show navbar on scroll
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
+                    // Scrolling down
+                    navbar.classList.add('hide');
+                } else {
+                    // Scrolling up
+                    navbar.classList.remove('hide');
                 }
-            }
-            
-            // Add the new reviews section
-            html += `
-                <section class="mb-16">
-                    <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-blue-600 pb-2 text-center">
-                        What Clients Say
-                    </h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            `;
-
-            reviews.forEach(review => {
-                html += `
-                        <div class="bg-slate-800 rounded-2xl shadow-xl p-6 transition-transform duration-300 hover:scale-105">
-                            <div class="flex items-center mb-4">
-                                <img
-                                    src="${review.avatar}"
-                                    alt="${review.name} avatar"
-                                    class="w-12 h-12 rounded-full mr-4 object-cover"
-                                />
-                                <div>
-                                    <h4 class="text-lg font-semibold text-white">${review.name}</h4>
-                                    <p class="text-yellow-400 text-sm">★★★★★</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-400 text-sm italic">"${review.text}"</p>
-                        </div>
-                `;
+                lastScrollTop = scrollTop;
             });
-            
-            html += `
-                    </div>
-                </section>
-            `;
 
-            container.innerHTML = html;
         });
     </script>
 </body>
