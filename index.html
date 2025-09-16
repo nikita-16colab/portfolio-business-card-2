@@ -581,7 +581,7 @@
         }
 
         /* =======================================
-           10. FOOTER        
+           10. FOOTER     
            ======================================= */
         footer {
             text-align: center;
@@ -892,23 +892,27 @@
                 <ul class="skills-list fade-in">
                     <li>
                         <i class="fas fa-edit"></i>
-                        <span>Sales-driven copywriting (banners, landing pages, website texts)</span>
+                        <span>Sales-driven copywriting (banners, landing pages, website text)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-bullseye"></i>
+                        <span>A/B testing, optimization and conversion rate increase</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope-open-text"></i>
-                        <span>Email marketing and automated email sequences</span>
+                        <span>Email marketing strategy and newsletters</span>
                     </li>
                     <li>
                         <i class="fas fa-chart-line"></i>
-                        <span>Audience analysis, segmentation, A/B testing</span>
+                        <span>Analytics and data-driven approach</span>
                     </li>
                     <li>
-                        <i class="fas fa-mouse-pointer"></i>
-                        <span>Conversion optimization, UX-driven approach to text</span>
+                        <i class="fas fa-search"></i>
+                        <span>Audience research and segmentation</span>
                     </li>
                     <li>
-                        <i class="fas fa-database"></i>
-                        <span>Data work: CTR, CPC, analytics, heatmaps</span>
+                        <i class="fas fa-rocket"></i>
+                        <span>Project management and strategic planning</span>
                     </li>
                 </ul>
             </div>
@@ -918,26 +922,26 @@
             <div class="container">
                 <h2 class="fade-in">Testimonials</h2>
                 <div class="testimonial fade-in">
-                    <p>“Tatyana's work allowed us to increase banner CTR from ~2.5% to **~4.0%** and at the same time reduce the cost per click by **~25%**.”</p>
-                    <cite>— Head of Marketing, Storyline Production s.r.o.</cite>
+                    <p>
+                        Working with Tatyana was a pleasure. She not only wrote excellent texts but also offered a strategy for their effective use. The results exceeded our expectations.
+                    </p>
+                    <cite>- Peter Novák, Marketing Director</cite>
                 </div>
                 <div class="testimonial fade-in">
-                    <p>“After optimizing the landing page, we started receiving applications much more frequently — the conversion rate grew from ≈3.2% to **≈4.8%**.”</p>
-                    <cite>— Internal Client, Storyline Project</cite>
-                </div>
-                <div class="testimonial fade-in">
-                    <p>“The new email sequence increased sales by **25%** among our existing client base; the Open Rate rose to **~30%**, and CTR to **~10%**.”</p>
-                    <cite>— Marketing Department, Storyline Production</cite>
+                    <p>
+                        Tatyana's approach is truly data-driven. She doesn't just write; she builds a system. Her recommendations on A/B testing helped us significantly improve our campaign's performance.
+                    </p>
+                    <cite>- Julia Kovács, Project Manager</cite>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <div class="container fade-in">
-                <h2>Contact</h2>
+                <h2>Contact Me</h2>
                 <div class="contact-box">
-                    <p>Connect through my <a href="https://www.upwork.com/freelancers/~015045120744bc2a42?viewMode=1" target="_blank">Upwork profile</a></p>
-                    <p>Need to see my full PDF portfolio? I'll send the link upon request via Upwork.</p>
+                    <p>Ready to boost your sales with powerful words?</p>
+                    <a href="https://www.upwork.com/freelancers/~015045120744bc2a42?mp_source=share">Contact Me Now</a>
                 </div>
             </div>
         </section>
@@ -945,55 +949,51 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tatyana Polovnaya. All rights reserved.</p>
+            <p>&copy; 2025 Tatyana Polovnaya. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, observerOptions);
 
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
 
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.navbar a');
+        // Navbar scroll behavior
+        let lastScrollY = window.scrollY;
+        const navbar = document.querySelector('.navbar');
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 100) {
-                        current = section.getAttribute('id');
-                    }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                navbar.classList.add('hide');
+            } else {
+                navbar.classList.remove('hide');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.href.includes(current)) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-
-            let lastScrollTop = 0;
-            const navbar = document.querySelector('.navbar');
-
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
-                    navbar.classList.add('hide');
-                } else {
-                    navbar.classList.remove('hide');
-                }
-                lastScrollTop = scrollTop;
             });
         });
     </script>
