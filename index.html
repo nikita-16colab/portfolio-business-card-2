@@ -27,11 +27,9 @@
             --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4);
             --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: var(--font-body);
             line-height: 1.7;
@@ -42,7 +40,6 @@
             overflow-x: hidden;
             position: relative;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -56,24 +53,20 @@
             opacity: 0.1;
             z-index: -1;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 calc(var(--spacing-unit) * 2);
         }
-
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.2s ease-out, transform 1.2s ease-out;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         /* =======================================
            2. NAVIGATION
            ======================================= */
@@ -89,17 +82,14 @@
             transition: top 0.4s ease-in-out;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
         }
-
         .navbar.hide {
             top: -80px;
         }
-
         .navbar nav {
             display: flex;
             justify-content: center;
             gap: calc(var(--spacing-unit) * 2);
         }
-
         .navbar a {
             color: var(--secondary-text);
             font-family: var(--font-header);
@@ -110,12 +100,10 @@
             transition: all 0.3s ease;
             padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.5);
         }
-
         .navbar a:hover {
             color: var(--accent-color);
             transform: translateY(-3px);
         }
-
         .navbar a::after {
             content: '';
             position: absolute;
@@ -127,12 +115,10 @@
             transform: scaleX(0);
             transition: transform 0.3s ease-in-out;
         }
-
         .navbar a:hover::after,
         .navbar a.active::after {
             transform: scaleX(1);
         }
-
         /* =======================================
            3. HERO SECTION
            ======================================= */
@@ -147,7 +133,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -163,7 +148,6 @@
             opacity: 0.2;
             filter: brightness(0.6);
         }
-
         .hero-photo-container {
             width: 220px;
             height: 220px;
@@ -179,12 +163,10 @@
             background-color: var(--primary-bg-light);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .hero-photo-container:hover {
             transform: scale(1.1);
             box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 215, 0, 0.4);
         }
-
         .hero h1 {
             font-family: var(--font-header);
             font-size: 5.5rem;
@@ -194,7 +176,6 @@
             text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
             letter-spacing: 2px;
         }
-
         .hero p {
             font-family: var(--font-header);
             font-size: 1.8rem;
@@ -204,7 +185,6 @@
             margin-top: calc(var(--spacing-unit) * 1.5);
             line-height: 1.4;
         }
-
         .accent {
             color: var(--accent-color);
             position: relative;
@@ -221,7 +201,6 @@
             opacity: 0.7;
             transform: scaleX(0.8);
         }
-
         /* =======================================
            4. GENERAL SECTION STYLES
            ======================================= */
@@ -230,7 +209,6 @@
             position: relative;
             z-index: 1;
         }
-
         h2 {
             font-family: var(--font-header);
             font-size: 3.8rem;
@@ -260,7 +238,6 @@
             background: linear-gradient(to right, transparent, var(--secondary-text), transparent);
             opacity: 0.5;
         }
-
         /* =======================================
            5. ABOUT SECTION    
            ======================================= */
@@ -270,7 +247,6 @@
             align-items: center;
             gap: calc(var(--spacing-unit) * 4);
         }
-
         .about-photo-container {
             width: 180px;
             height: 180px;
@@ -289,12 +265,10 @@
         .about-photo-container:hover {
             transform: rotate(5deg) scale(1.05);
         }
-
         .about-text {
             max-width: 900px;
             text-align: center;
         }
-
         .about-text p {
             font-size: 1.25rem;
             color: var(--light-text);
@@ -305,15 +279,12 @@
             color: var(--accent-color);
             font-weight: 500;
         }
-
-
         @media (min-width: 768px) {
             .about-content {
                 flex-direction: row;
                 text-align: left;
                 align-items: flex-start;
             }
-
             .about-photo-container {
                 margin-right: calc(var(--spacing-unit) * 4);
                 margin-bottom: 0;
@@ -322,7 +293,6 @@
                 text-align: left;
             }
         }
-
         /* =======================================
            6. CASE STUDIES SECTION    
            ======================================= */
@@ -347,13 +317,11 @@
             background: linear-gradient(to bottom, var(--accent-color), rgba(255, 215, 0, 0.2));
             border-radius: var(--border-radius) 0 0 var(--border-radius);
         }
-
         .case-study:hover {
             transform: translateY(-12px) scale(1.01);
             box-shadow: var(--shadow-dark);
             background-color: var(--primary-bg-dark);
         }
-
         .case-study h3 {
             font-family: var(--font-header);
             color: var(--accent-color);
@@ -362,7 +330,6 @@
             margin-bottom: var(--spacing-unit);
             font-weight: 700;
         }
-
         .case-study h4 {
             font-family: var(--font-header);
             color: var(--light-text);
@@ -371,12 +338,10 @@
             margin-top: calc(var(--spacing-unit) * 3);
             font-weight: 500;
         }
-
         .case-study strong {
             color: var(--accent-color);
             font-weight: 700;
         }
-
         .case-study ul {
             list-style: none;
             padding-left: 0;
@@ -396,8 +361,6 @@
             font-size: 1.2rem;
             line-height: 1.7;
         }
-
-
         .case-study .results {
             margin-top: calc(var(--spacing-unit) * 4);
             background-color: rgba(0, 0, 0, 0.15);
@@ -405,13 +368,11 @@
             overflow: hidden;
             box-shadow: var(--shadow-light);
         }
-
         .case-study .results table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
         }
-
         .case-study .results th,
         .case-study .results td {
             padding: calc(var(--spacing-unit) * 1.5);
@@ -421,7 +382,6 @@
         .case-study .results tr:last-child td {
             border-bottom: none;
         }
-
         .case-study .results th {
             color: var(--accent-color);
             font-weight: 700;
@@ -430,20 +390,21 @@
             background-color: var(--primary-bg-dark);
             letter-spacing: 0.5px;
         }
-
         .case-study .results td {
             font-weight: 400;
         }
-
         .case-study .results .before {
             color: var(--secondary-text);
         }
-
         .case-study .results .after {
             color: var(--accent-color);
             font-weight: 700;
         }
-
+        .case-study .case-study-button {
+            display: inline-block;
+            margin-top: calc(var(--spacing-unit) * 3);
+            text-align: center;
+        }
         /* =======================================
            7. SKILLS SECTION
            ======================================= */
@@ -454,7 +415,6 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: calc(var(--spacing-unit) * 2);
         }
-
         .skills-list li {
             background-color: var(--primary-bg-light);
             padding: calc(var(--spacing-unit) * 2.5);
@@ -467,13 +427,11 @@
             transition: all 0.3s ease-out;
             border-top: 1px solid rgba(255, 215, 0, 0.05);
         }
-
         .skills-list li:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: var(--shadow-medium);
             background-color: var(--primary-bg-dark);
         }
-
         .skills-list li svg {
             fill: var(--accent-color);
             min-width: 32px;
@@ -489,7 +447,6 @@
             font-weight: 400;
             color: var(--light-text);
         }
-
         /* =======================================
            8. TESTIMONIALS SECTION
            ======================================= */
@@ -508,7 +465,6 @@
             background-color: var(--primary-bg-dark);
             transition: all 0.3s ease;
         }
-
         .testimonial::before {
             content: '“';
             font-family: var(--font-header);
@@ -520,7 +476,6 @@
             line-height: 1;
             z-index: 0;
         }
-
         .testimonial p {
             font-style: italic;
             margin: 0 0 var(--spacing-unit) 0;
@@ -530,7 +485,6 @@
             z-index: 1;
             color: var(--secondary-text);
         }
-
         .testimonial cite {
             display: block;
             text-align: right;
@@ -539,7 +493,6 @@
             margin-top: calc(var(--spacing-unit) * 1.5);
             font-weight: 500;
         }
-
         /* =======================================
            9. CONTACT SECTION
            ======================================= */
@@ -550,38 +503,50 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-medium);
             border: 1px solid rgba(255, 215, 0, 0.1);
+            max-width: 700px;
+            margin: 0 auto;
         }
-
-        .contact-box p {
-            font-size: 1.2rem;
+        .contact-box h3 {
+            font-family: var(--font-header);
+            font-size: 1.8rem;
+            color: var(--light-text);
+            margin-top: 0;
             margin-bottom: calc(var(--spacing-unit) * 2);
-            color: var(--secondary-text);
+            font-weight: 500;
         }
-
-        .contact-box a {
+        .contact-box .button-single {
+            display: inline-block;
+            width: auto;
+            min-width: 250px;
+        }
+        .button {
             color: var(--accent-color);
             font-family: var(--font-header);
             font-weight: 700;
             text-decoration: none;
-            font-size: 2.2rem;
-            display: inline-block;
-            padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 0.7);
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
             border: 2px solid var(--accent-color);
             border-radius: var(--border-radius);
             transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            margin-top: calc(var(--spacing-unit) * 2);
         }
-
-        .contact-box a:hover {
+        .button:hover {
             background-color: var(--accent-color);
             color: var(--dark-bg);
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.4);
             transform: scale(1.05);
-            letter-spacing: 1px;
         }
-
+        .button i {
+            font-size: 1.5rem;
+        }
         /* =======================================
-           10. FOOTER     
+           10. FOOTER    
            ======================================= */
         footer {
             text-align: center;
@@ -591,7 +556,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: calc(var(--spacing-unit) * 5);
         }
-
         /* =======================================
            11. RESPONSIVENESS
            ======================================= */
@@ -607,7 +571,6 @@
                 letter-spacing: 2px;
             }
         }
-
         @media (max-width: 768px) {
             .navbar nav {
                 gap: calc(var(--spacing-unit) * 1);
@@ -678,12 +641,11 @@
             .contact-box {
                 padding: calc(var(--spacing-unit) * 4);
             }
-            .contact-box a {
-                font-size: 1.8rem;
+            .button {
+                font-size: 1rem;
                 padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5);
             }
         }
-
         @media (max-width: 500px) {
             .navbar nav {
                 flex-wrap: wrap;
@@ -706,8 +668,10 @@
             .skills-list {
                 grid-template-columns: 1fr;
             }
-            .contact-box a {
-                font-size: 1.5rem;
+            .contact-box .button {
+                width: 100%;
+                font-size: 1.1rem;
+                padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1);
             }
         }
     </style>
@@ -732,7 +696,7 @@
                 <div class="hero-photo-container"></div>
                 <h1>Tatyana <span class="accent">Polovnaya</span></h1>
                 <p>Senior Copywriter at Storyline Production s.r.o.</p>
-                <p>I create content that **converts visitors into clients**.</p>
+                <p>I create content that **turns visitors into customers**.</p>
             </div>
         </section>
 
@@ -743,7 +707,7 @@
                     <div class="about-photo-container"></div>
                     <div class="about-text">
                         <p>
-                            I am a Senior Copywriter from **Storyline Production s.r.o.** in Prague. My specialty is creating persuasive, results-oriented texts based on data and a deep understanding of audience behavior. I don't just write; I analyze, optimize, test, and improve every text to achieve measurable business goals. My experience allows me to work effectively on diverse projects, ensuring **high conversion and maximum ROI** for every client.
+                            I am a Senior Copywriter at **Storyline Production s.r.o.** in Prague. My expertise is creating persuasive, results-driven copy based on data and a deep understanding of audience behavior. I don't just write; I analyze, optimize, test, and improve every piece of content to meet measurable business goals. My experience allows me to work effectively on diverse projects, ensuring **high conversion and maximum ROI** for every client.
                         </p>
                     </div>
                 </div>
@@ -755,25 +719,25 @@
                 <h2 class="fade-in">Case Studies</h2>
 
                 <div class="case-study fade-in">
-                    <h3>Banner Ad Campaign + Segmentation</h3>
+                    <h3>Banner Campaign + Segmentation</h3>
                     <p><strong>Period:</strong> January - February 2025</p>
-                    <h4>Challenge:</h4>
-                    <p>Banner ad CTR was around 2.5%, the budget was spent quickly, and there were few clicks to the website.</p>
-                    <h4>My solution:</h4>
+                    <h4>Problem:</h4>
+                    <p>Banner CTR was around 2.5%, the budget was spent quickly, and there were few clicks to the website.</p>
+                    <h4>My Solution:</h4>
                     <ul>
                         <li>Analyzed the audience and segmented it into three groups based on interests and behavior.</li>
                         <li>Rewrote headlines and calls to action, focusing on specific benefits.</li>
-                        <li>Conducted A/B tests on different banner variations (different headlines, calls to action, visuals).</li>
-                        <li>Simplified the design, removed unnecessary elements, and reinforced the CTA.</li>
+                        <li>Conducted A/B tests on different banner variations (different headlines, CTAs, visuals).</li>
+                        <li>Simplified the design, removed unnecessary elements, and strengthened the CTA.</li>
                     </ul>
                     <div class="results">
                         <h4>Results:</h4>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Metrics</th>
-                                    <th>Before changes</th>
-                                    <th>After changes</th>
+                                    <th>Metric</th>
+                                    <th>Before</th>
+                                    <th>After</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -783,51 +747,57 @@
                                     <td class="after">**~4.0%** (an increase of **~25%**)</td>
                                 </tr>
                                 <tr>
-                                    <td>Cost Per Click (CPC)</td>
+                                    <td>CPC (Cost Per Click)</td>
                                     <td class="before">High</td>
-                                    <td class="after">A decrease of **~25%**</td>
+                                    <td class="after">Reduced by **~25%**</td>
                                 </tr>
                                 <tr>
-                                    <td>Traffic to landing page</td>
-                                    <td class="before">Baseline number</td>
-                                    <td class="after">An increase of **~80%**</td>
+                                    <td>Traffic to Landing Page</td>
+                                    <td class="before">Baseline</td>
+                                    <td class="after">Increased by **~80%**</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    <div class="case-study-button">
+                        <a href="https://docs.google.com/document/d/1Cv_yPx2WnXhJN9586KASCqoWAPw5u_WpVHCTj6btaGg/edit?usp=sharing" class="button" target="_blank">
+                            <i class="fas fa-file-alt"></i>
+                            Read the Full Case Study
+                        </a>
+                    </div>
                 </div>
 
                 <div class="case-study fade-in">
-                    <h3>Landing Page Optimization for Video Production</h3>
+                    <h3>Landing Page Optimization for a Video Production Company</h3>
                     <p><strong>Period:</strong> March 2025</p>
-                    <h4>Challenge:</h4>
-                    <p>Landing page conversion rate was ~3.2%, high bounce rate, visitors left without submitting a request.</p>
-                    <h4>My solution:</h4>
+                    <h4>Problem:</h4>
+                    <p>The landing page conversion rate was ~3.2%, with a high bounce rate. Visitors were leaving without submitting a request.</p>
+                    <h4>My Solution:</h4>
                     <ul>
-                        <li>Analyzed visitor behavior (heat maps) to understand at which block they "dropped off".</li>
-                        <li>Changed the order of blocks: benefits first, then cases/portfolio, testimonials, and only then the call to action.</li>
-                        <li>Made headlines bolder and more specific, broke up the text into bullet points and short paragraphs.</li>
-                        <li>Added expressive CTAs ("Request a consultation," "Get a quote") in visible places.</li>
-                        <li>Increased trust by adding client testimonials and work examples.</li>
+                        <li>Analyzed visitor behavior (heatmaps) to understand where they were dropping off.</li>
+                        <li>Reordered the blocks: benefits first, then case studies/portfolio, testimonials, and finally a clear call to action.</li>
+                        <li>Made headlines more compelling and specific, and broke up the text into bullet points and short paragraphs.</li>
+                        <li>Added prominent CTAs ("Get a Consultation," "Request a Quote") in visible locations.</li>
+                        <li>Increased trust by including client testimonials and examples of work.</li>
                     </ul>
                     <div class="results">
                         <h4>Results:</h4>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Metrics</th>
+                                    <th>Metric</th>
                                     <th>Before</th>
                                     <th>After</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Landing Page Conversion</td>
+                                    <td>Landing Page Conversion Rate</td>
                                     <td class="before">~3.2%</td>
                                     <td class="after">**~4.8%** (an increase of **~50%**)</td>
                                 </tr>
                                 <tr>
-                                    <td>Average time on page</td>
+                                    <td>Average Time on Page</td>
                                     <td class="before">~1 min</td>
                                     <td class="after">~1:45 min</td>
                                 </tr>
@@ -839,26 +809,32 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="case-study-button">
+                        <a href="https://docs.google.com/document/d/1tX9mGgjno-ppH0YVFO4AnPbqz1DTlp30MEJKOo7DWHo/edit?usp=sharing" class="button" target="_blank">
+                            <i class="fas fa-file-alt"></i>
+                            Read the Full Case Study
+                        </a>
+                    </div>
                 </div>
 
                 <div class="case-study fade-in">
-                    <h3>Email Marketing Series / Repeat Sales</h3>
+                    <h3>Email Series / Repeat Sales</h3>
                     <p><strong>Period:</strong> April - May 2025</p>
-                    <h4>Challenge:</h4>
-                    <p>Increase repeat sales and upsells among existing clients and bring back those who haven't placed an order in a long time.</p>
-                    <h4>My solution:</h4>
+                    <h4>Problem:</h4>
+                    <p>Increase repeat sales and upsells among existing customers and re-engage those who haven't made a purchase in a long time.</p>
+                    <h4>My Solution:</h4>
                     <ul>
-                        <li>Segmented the client base: "current clients," "past clients," "subscribed but did not buy."</li>
-                        <li>Developed a series of 5 emails: welcome, useful content, case studies, bonus/discount offer, reminder.</li>
-                        <li>Conducted A/B tests on email subjects and CTAs, optimized the structure—conciseness, clarity, a direct path to action.</li>
-                        <li>Optimized sending times and email subjects.</li>
+                        <li>Segmented the customer base: "current customers," "lapsed customers," "subscribers but no purchase."</li>
+                        <li>Developed a 5-email series: a welcome email, helpful content, case studies, a bonus/discount offer, and a reminder.</li>
+                        <li>Conducted A/B tests on email subjects and CTAs, and optimized the structure for clarity, conciseness, and a clear path to action.</li>
+                        <li>Optimized email send times and subject lines.</li>
                     </ul>
                     <div class="results">
                         <h4>Results:</h4>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Metrics</th>
+                                    <th>Metric</th>
                                     <th>Before</th>
                                     <th>After</th>
                                 </tr>
@@ -876,11 +852,17 @@
                                 </tr>
                                 <tr>
                                     <td>Revenue / Sales</td>
-                                    <td class="before">Baseline level</td>
+                                    <td class="before">Baseline</td>
                                     <td class="after">Sales increase of **+25%**</td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="case-study-button">
+                        <a href="https://docs.google.com/document/d/16eCSl226-AKY32eSVMCvIZa8HzUFq92YL5lzjXLOdl0/edit?usp=sharing" class="button" target="_blank">
+                            <i class="fas fa-file-alt"></i>
+                            Read the Full Case Study
+                        </a>
                     </div>
                 </div>
             </div>
@@ -892,56 +874,65 @@
                 <ul class="skills-list fade-in">
                     <li>
                         <i class="fas fa-edit"></i>
-                        <span>Sales-driven copywriting (banners, landing pages, website text)</span>
+                        <span>Sales Copywriting (Banners, Landing Pages)</span>
                     </li>
                     <li>
-                        <i class="fas fa-bullseye"></i>
-                        <span>A/B testing, optimization and conversion rate increase</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope-open-text"></i>
-                        <span>Email marketing strategy and newsletters</span>
+                        <i class="fas fa-search-dollar"></i>
+                        <span>Content Marketing (Articles, Blogs, Case Studies)</span>
                     </li>
                     <li>
                         <i class="fas fa-chart-line"></i>
-                        <span>Analytics and data-driven approach</span>
+                        <span>Conversion Rate Optimization (CRO)</span>
                     </li>
                     <li>
-                        <i class="fas fa-search"></i>
-                        <span>Audience research and segmentation</span>
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>Email Marketing (Funnels, Newsletters)</span>
                     </li>
                     <li>
-                        <i class="fas fa-rocket"></i>
-                        <span>Project management and strategic planning</span>
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Ad Copywriting (Social Media, PPC Ads)</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Content Strategy Development</span>
                     </li>
                 </ul>
             </div>
         </section>
-
         <section id="testimonials">
             <div class="container">
                 <h2 class="fade-in">Testimonials</h2>
                 <div class="testimonial fade-in">
                     <p>
-                        Working with Tatyana was a pleasure. She not only wrote excellent texts but also offered a strategy for their effective use. The results exceeded our expectations.
+                        Tatyana completely rewrote the copy for our website. I was skeptical that anything would change, but the results exceeded all expectations. Our conversion rate increased by 50%! She truly understands how to speak to an audience.
                     </p>
-                    <cite>- Peter Novák, Marketing Director</cite>
+                    <cite>— Ivan, Company CEO</cite>
                 </div>
                 <div class="testimonial fade-in">
                     <p>
-                        Tatyana's approach is truly data-driven. She doesn't just write; she builds a system. Her recommendations on A/B testing helped us significantly improve our campaign's performance.
+                        We worked with Tatyana on a series of email newsletters. Previously, almost no one opened our emails. Thanks to her work, our Open Rate increased by 50%, and our CTR tripled! We're finally seeing real results from our email marketing.
                     </p>
-                    <cite>- Julia Kovács, Project Manager</cite>
+                    <cite>— Olga, Marketing Director</cite>
+                </div>
+                <div class="testimonial fade-in">
+                    <p>
+                        We commissioned Tatyana to write copy for our ad banners. She offered several options, each targeting a specific audience. As a result, we not only lowered the cost per click but also attracted much more qualified traffic. Highly recommended!
+                    </p>
+                    <cite>— Dmitry, Startup Founder</cite>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <div class="container fade-in">
-                <h2>Contact Me</h2>
+                <h2>Contact</h2>
                 <div class="contact-box">
-                    <p>Ready to boost your sales with powerful words?</p>
-                    <a href="https://www.upwork.com/freelancers/~015045120744bc2a42?mp_source=share">Contact Me Now</a>
+                    <h3>Ready to boost your sales with powerful words?</h3>
+                    <div class="button-single">
+                        <a href="mailto:polovnayata@email.com" class="button">
+                            Contact Me Now
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -952,48 +943,33 @@
             <p>&copy; 2025 Tatyana Polovnaya. All Rights Reserved.</p>
         </div>
     </footer>
-
     <script>
+        // JavaScript for effects
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.2
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            // Function to show elements on scroll
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
-
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => observer.observe(el));
-        });
-
-        // Navbar scroll behavior
-        let lastScrollY = window.scrollY;
-        const navbar = document.querySelector('.navbar');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                navbar.classList.add('hide');
-            } else {
-                navbar.classList.remove('hide');
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            }, { threshold: 0.1 });
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+            // Hide/show navigation on scroll
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    navbar.classList.add('hide');
+                } else {
+                    navbar.classList.remove('hide');
+                }
+                lastScrollTop = scrollTop;
             });
         });
     </script>
